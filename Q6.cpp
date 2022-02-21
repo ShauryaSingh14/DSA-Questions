@@ -1,8 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-// Below Code can also implement using set as they contains only distict values;
-
+// Below Code can also implement using set as they contains only distict values 
 int doUnion(int a[], int n, int b[], int m)
 {
 
