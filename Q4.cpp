@@ -1,3 +1,5 @@
+// Given an array of size N containing only 0s, 1s,
+//  and 2s; sort the array in ascending order.
 #include <iostream>
 using namespace std;
 void swap(int * a, int *b){
@@ -5,7 +7,7 @@ void swap(int * a, int *b){
         *a = *b;
         *b = temp;
     }
-    void sort012(int arr[], int n)
+void sort012(int arr[], int n)
     {
         int low =0, high=n-1, mid =0;
         while(mid<=high){
