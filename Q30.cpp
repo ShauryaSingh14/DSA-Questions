@@ -1,30 +1,27 @@
 // { Driver Code Starts
 #include <iostream>
 using namespace std;
-
-
- // } Driver Code Ends
 class Solution{
-
-    // Function to find the trapped water between the blocks.
     public:
-    long long trappingWater(int arr[], int n){
-        // code here
-        int max=arr[0]>arr[1]? arr[0]: arr[1];
-        int max2=arr[0]>arr[2]? arr[1]: arr[0];
-        
-        for(int i=0;i<n;i++){
-            int temp = max;
-            max=max>arr[i]? max: arr[i];
-            max2=max>temp? temp:max;
+        long long trappingWater(int arr[], int n){
+        int left[n];
+        int right[n];
+        left[0] = arr[0];
+        right[n-1] = arr[n-1];
+        int maxLeft= arr[0];
+        int maxRight = arr[n-1];
+
+        for(int i =1 ; i<n ;i++){
+            maxLeft = max(arr[i],maxLeft);
+            left[i] = max(arr[i],maxLeft);
         }
-        long long atm=0;
-        for(int i=0;i<n;i++){
-            int temp = max2-arr[i];
-            if(temp <0){
-                temp=0;
-            }
-            atm=+temp;
+        for(int i = n-1 ; i>=0 ; i--){
+            maxRight = max(arr[i],maxRight);
+            right[i] = max(arr[i],maxRight);
+        }
+        long long atm =0 ;
+        for(int i=0 ;i<n;i++){
+            atm += min(left[i],right[i])-arr[i];
         }
         return atm;
     }
@@ -33,12 +30,7 @@ class Solution{
 // { Driver Code Starts.
 
 int main(){
-    
-    int t;
-    //testcases
-    cin >> t;
-    
-    while(t--){
+
         int n;
         
         //size of array
@@ -53,8 +45,6 @@ int main(){
         Solution obj;
         //calling trappingWater() function
         cout << obj.trappingWater(a, n) << endl;
-        
-    }
-    
+
     return 0;
 }  // } Driver Code Ends
