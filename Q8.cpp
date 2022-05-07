@@ -11,7 +11,7 @@ int getMinDiff(int arr[], int n, int k)
     {
         if (arr[i] - k >= 0)
         
-        {kdkksksdksdlk
+        {
             arr[i] = arr[i] - k;
         }
         else
