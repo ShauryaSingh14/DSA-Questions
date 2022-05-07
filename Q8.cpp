@@ -10,7 +10,8 @@ int getMinDiff(int arr[], int n, int k)
     for (int i = 0; i < n; i++)
     {
         if (arr[i] - k >= 0)
-        {
+        
+        {kdkksksdksdlk
             arr[i] = arr[i] - k;
         }
         else
